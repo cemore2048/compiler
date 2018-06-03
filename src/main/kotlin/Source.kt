@@ -9,11 +9,11 @@ class Source(private val reader: BufferedReader) {
 
     @Throws
     fun currentChar(): Char {
-        val currentLine = line!!
+        val currentLine = line
         return if (currentPosition == -2) {
             readLine()
             nextChar()
-        } else if (line == null ){
+        } else if (line == null) {
             throw EOFException()
         } else if ((currentPosition == -1) || (currentPosition == line!!.length)) {
             throw EOFException()
@@ -21,7 +21,7 @@ class Source(private val reader: BufferedReader) {
             readLine()
             nextChar()
         } else {
-            currentLine[currentPosition]
+            currentLine!![currentPosition]
         }
     }
 
@@ -33,11 +33,13 @@ class Source(private val reader: BufferedReader) {
 
     @Throws
     fun peekChar(): Char {
-        val currentLine = line!!
-        currentChar()
         if (line == null) {
             throw EOFException()
         }
+
+        val currentLine = line!!
+        currentChar()
+
 
         val nextPos = currentPosition + 1
         return if (nextPos < line!!.length) currentLine[nextPos] else throw EOFException()
@@ -45,7 +47,7 @@ class Source(private val reader: BufferedReader) {
 
     @Throws
     fun readLine() {
-        line = reader!!.readLine()
+        line = reader.readLine()
         currentPosition--
         if (line != null) {
             lineNum++
@@ -54,13 +56,12 @@ class Source(private val reader: BufferedReader) {
 
     @Throws
     fun close() {
-        if (reader != null) {
-            try {
-                reader!!.close()
-            } catch (ex: IOException) {
-                ex.printStackTrace()
-                throw ex
-            }
+        try {
+            reader.close()
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            throw ex
         }
+
     }
 }
