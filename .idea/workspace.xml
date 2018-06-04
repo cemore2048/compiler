@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d89324-9007-4949-8388-cf6639c216ab" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/EofToken.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Message.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/MessageHandler.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/MessageListener.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/MessageProducer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/MessageType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/TokenType.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/fileSnapshots.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/compilerProject_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/compilerProject_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/compilerProject_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/compilerProject_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Source.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Source.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Token.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Token.kt" afterDir="false" />
-    </list>
+    <list default="true" id="71d89324-9007-4949-8388-cf6639c216ab" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -39,11 +19,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Source.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Source.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Source.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-699">
+            <state relative-caret-position="105">
               <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymbolTable.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/SymbolTable.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IntermediateCodeGenerator.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/IntermediateCodeGenerator.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="10" selection-start-column="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -89,15 +87,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EofToken.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/EofToken.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="44" lean-forward="true" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -542,6 +531,8 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/Parser.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/MessageHandler.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Source.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/SymbolTable.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/IntermediateCodeGenerator.kt" />
       </list>
     </option>
   </component>
@@ -670,7 +661,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="185" y="23" width="1400" height="907" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -682,10 +672,10 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893157" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893157" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32893157" />
       <window_info anchor="right" id="Gradle" order="3" />
@@ -719,20 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/SymbolTable.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/IntermediateCodeGenerator.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -822,8 +798,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Source.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-699">
+        <state relative-caret-position="105">
           <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/SymbolTable.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/IntermediateCodeGenerator.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
