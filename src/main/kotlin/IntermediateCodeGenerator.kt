@@ -1,2 +1,2 @@
-class IntermediateCodeGenerator {
+interface IntermediateCodeGenerator {
 }
