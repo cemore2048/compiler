@@ -2,10 +2,17 @@ import java.io.BufferedReader
 import java.io.EOFException
 import java.io.IOException
 
-class Source(private val reader: BufferedReader) {
+class Source(private val reader: BufferedReader): MessageProducer {
+
+    companion object {
+        const val EOL: Char = '\n'
+        const val EOF: Char = 0.toChar()
+        var messageHandler = MessageHandler()
+    }
+
     private var line: String? = null
-    private var lineNum: Int = 0
-    private var currentPosition: Int = -2
+    var lineNum: Int = 0
+    var currentPosition: Int = -2
 
     @Throws
     fun currentChar(): Char {
@@ -14,9 +21,10 @@ class Source(private val reader: BufferedReader) {
             readLine()
             nextChar()
         } else if (line == null) {
-            throw EOFException()
+            return EOF
+
         } else if ((currentPosition == -1) || (currentPosition == line!!.length)) {
-            throw EOFException()
+            return EOF
         } else if (currentPosition > line!!.length) {
             readLine()
             nextChar()
@@ -34,23 +42,24 @@ class Source(private val reader: BufferedReader) {
     @Throws
     fun peekChar(): Char {
         if (line == null) {
-            throw EOFException()
+           return EOF
         }
 
         val currentLine = line!!
         currentChar()
 
-
         val nextPos = currentPosition + 1
-        return if (nextPos < line!!.length) currentLine[nextPos] else throw EOFException()
+        return if (nextPos < line!!.length) currentLine[nextPos] else EOL
     }
 
     @Throws
     fun readLine() {
         line = reader.readLine()
-        currentPosition--
+        currentPosition = 0
+
         if (line != null) {
             lineNum++
+            sendMessage(Message(MessageType.SOURCE_LINE, arrayOf(lineNum, line!!)))
         }
     }
 
@@ -64,4 +73,10 @@ class Source(private val reader: BufferedReader) {
         }
 
     }
+
+    override fun addMessageListener(listener: MessageListener) = messageHandler.addListener(listener)
+
+    override fun removeMessageListener(listener: MessageListener) = messageHandler.removeListener(listener)
+
+    override fun sendMessage(message: Message) = messageHandler.sendMessage(message)
 }
