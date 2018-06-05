@@ -1,3 +1,5 @@
+package message
+
 enum class MessageType {
     SOURCE_LINE, SYNTAX_ERROR, PARSER_SUMMARY,
     INTERPRETER_SUMMARY, COMPILER_SUMMARY,

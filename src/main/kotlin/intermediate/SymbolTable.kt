@@ -1,2 +1,4 @@
+package intermediate
+
 interface SymbolTable {
 }

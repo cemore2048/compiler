@@ -1,2 +1,5 @@
+package frontend
+
 interface TokenType {
+
 }

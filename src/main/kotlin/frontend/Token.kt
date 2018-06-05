@@ -1,9 +1,11 @@
+package frontend
+
 open class Token(val source: Source) {
 
     protected var type: TokenType? = null
     protected var text: String? = null
     protected var value: Any? = null
-    protected var lineNum: Int? = source.lineNum
+    var lineNum: Int? = source.lineNum
     protected var position: Int? = source.currentPosition
 
     init {

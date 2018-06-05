@@ -1,6 +1,8 @@
+package frontend
+
 abstract class Scanner(val source: Source) {
 
-    var currentToken: Token? = null
+    private var currentToken: Token? = null
 
     fun currentToken() = currentToken
 

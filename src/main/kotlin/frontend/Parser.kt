@@ -1,3 +1,12 @@
+package frontend
+
+import intermediate.IntermediateCodeGenerator
+import intermediate.SymbolTable
+import message.Message
+import message.MessageHandler
+import message.MessageListener
+import message.MessageProducer
+
 abstract class Parser(private val scanner: Scanner) : MessageProducer {
 
     companion object {
@@ -6,8 +15,7 @@ abstract class Parser(private val scanner: Scanner) : MessageProducer {
     }
     protected val intermediateCode: IntermediateCodeGenerator? = null
 
-    var currentToken: Token? = null
-        get() = scanner.currentToken()
+    var currentToken: Token? = scanner.currentToken()
 
     var nextToken: Token? = null
         get() = scanner.nextToken()

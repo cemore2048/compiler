@@ -1,3 +1,9 @@
+package backend
+
+import intermediate.IntermediateCodeGenerator
+import intermediate.SymbolTable
+import message.MessageHandler
+
 abstract class Backend {
     companion object {
         val messageHandler = MessageHandler()

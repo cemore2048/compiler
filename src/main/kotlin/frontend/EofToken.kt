@@ -1,6 +1,6 @@
-open class EofToken: Token {
+package frontend
 
-    constructor(source: Source) : super(source)
+open class EofToken(source: Source) : Token(source) {
 
     protected fun extract(source: Source) {}
 }

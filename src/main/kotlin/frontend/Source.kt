@@ -1,5 +1,7 @@
+package frontend
+
+import message.*
 import java.io.BufferedReader
-import java.io.EOFException
 import java.io.IOException
 
 class Source(private val reader: BufferedReader): MessageProducer {
