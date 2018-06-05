@@ -6,7 +6,7 @@ import frontend.Scanner
 import message.Message
 import message.MessageType.PARSER_SUMMARY
 
-class PascalParserTD(val scanner: Scanner): Parser(scanner) {
+class PascalParserTD(scanner: Scanner): Parser(scanner) {
 
     @Throws
     override fun parse() {
