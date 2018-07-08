@@ -4,9 +4,9 @@ import frontend.pascal.PascalScanner
 
 object FrontEndFactory {
     fun createParser(language: String, type: String, source: Source): Scanner {
-        if (language.equals("Pascal") && type.equals("top-down")) {
+        if (language == "Pascal" && type == "top-down") {
            return PascalScanner(source)
-        } else if (!language.equals("Pascal")) {
+        } else if (language != "Pascal") {
             throw Exception("Parser Factory: invalid language $language")
         } else {
             throw Exception("Parser Factory: invalid type $type")

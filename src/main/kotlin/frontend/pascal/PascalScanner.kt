@@ -16,7 +16,5 @@ class PascalScanner(source: Source) : Scanner(source) {
             EofToken(source)
         else
             Token(source)
-
-
     }
 }

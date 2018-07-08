@@ -26,6 +26,4 @@ open class Token(val source: Source) {
     protected fun nextChar(): Char = source.nextChar()
 
     protected fun peekChar(): Char = source.peekChar()
-
-
 }

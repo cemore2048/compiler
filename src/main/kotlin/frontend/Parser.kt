@@ -30,7 +30,5 @@ abstract class Parser(private val scanner: Scanner) : MessageProducer {
     override fun removeMessageListener(listener: MessageListener) = messageHandler.removeListener(listener)
 
     override fun sendMessage(message: Message) = messageHandler.sendMessage(message)
-
-
 }
 
