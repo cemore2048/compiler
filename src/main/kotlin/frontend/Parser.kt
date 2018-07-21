@@ -9,11 +9,10 @@ import message.MessageProducer
 
 abstract class Parser(private val scanner: Scanner) : MessageProducer {
 
-    companion object {
-        var symbolTable: SymbolTable? = null
-        var messageHandler: MessageHandler = MessageHandler()
-    }
-    protected val intermediateCode: IntermediateCodeGenerator? = null
+    var symbolTable: SymbolTable? = null
+    var messageHandler: MessageHandler = MessageHandler()
+
+    val intermediateCode: IntermediateCodeGenerator? = null
 
     var currentToken: Token? = scanner.currentToken()
 
