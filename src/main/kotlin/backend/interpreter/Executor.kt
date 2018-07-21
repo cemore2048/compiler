@@ -1,4 +1,4 @@
-package backend.compiler
+package backend.interpreter
 
 import backend.Backend
 import intermediate.IntermediateCodeGenerator
@@ -7,15 +7,15 @@ import message.Message
 import message.MessageListener
 import message.MessageType
 
-class CodeGenerator: Backend() {
+class Executor: Backend() {
+
     override fun process(iCode: IntermediateCodeGenerator, symbolTable: SymbolTable) {
         val startTime: Long = System.currentTimeMillis()
-        val elapsedTime: Float = (System.currentTimeMillis() - startTime) / 1000f
+        val elapsedTime: Float= (System.currentTimeMillis() - startTime)/1000f
+        var executionCount = 0
+        var runtimeErrors = 0
 
-        val instructionCount = 0
-
-
-        sendMessage(Message(MessageType.COMPILER_SUMMARY, listOf<Number>(instructionCount, elapsedTime)))
+        sendMessage(Message(MessageType.INTERPRETER_SUMMARY, listOf<Number>(executionCount, runtimeErrors, elapsedTime)))
     }
 
     override fun addMessageListener(listener: MessageListener) {
@@ -29,5 +29,4 @@ class CodeGenerator: Backend() {
     override fun sendMessage(message: Message) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }
