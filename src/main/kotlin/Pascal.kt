@@ -34,10 +34,10 @@ class Pascal(operation: String, filePath: String, flags: String) {
             parser.parse()
             source.close()
 
-            iCode = parser.intermediateCode!!
-            symbolTable = parser.symbolTable!!
-
-            backend.process(iCode, symbolTable)
+//            iCode = parser.intermediateCode!!
+//            symbolTable = parser.symbolTable!!
+//
+//            backend.process(iCode, symbolTable)
         } catch (ex: Exception) {
             print("***** Internal translator error. *****")
             ex.printStackTrace()

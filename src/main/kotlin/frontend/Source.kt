@@ -61,7 +61,7 @@ class Source(private val reader: BufferedReader): MessageProducer {
 
         if (line != null) {
             lineNum++
-            sendMessage(Message(MessageType.SOURCE_LINE, arrayOf(lineNum, line!!)))
+            sendMessage(Message(MessageType.SOURCE_LINE, listOf(lineNum, line!!)))
         }
     }
 

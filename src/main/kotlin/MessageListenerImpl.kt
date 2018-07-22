@@ -18,7 +18,7 @@ class MessageListenerImpl: MessageListener {
         when (type) {
             MessageType.SOURCE_LINE  -> {
 
-                val body: List<*> = inputMessage.body as List<*>
+                val body: List<*> = inputMessage.body
                 val linenumber = body[0] as Int
                 val lineText = body[1] as String
 
@@ -26,15 +26,15 @@ class MessageListenerImpl: MessageListener {
             }
             MessageType.SYNTAX_ERROR -> TODO()
             MessageType.PARSER_SUMMARY -> {
-                val body: List<*> = inputMessage.body as List<*>
+                val body: List<*> = inputMessage.body
                 val statementCount = body[0] as Int
                 val syntaxErrors = body[1] as Int
-                val elapsedTime = body[2] as Long
+                val elapsedTime = body[2] as Float
 
                 print(String.format(PARSER_SUMMARY_FORMAT, statementCount, syntaxErrors, elapsedTime))
             }
             MessageType.INTERPRETER_SUMMARY -> {
-                val body: List<*> = inputMessage.body as List<*>
+                val body: List<*> = inputMessage.body
                 val statementCount = body[0] as Int
                 val syntaxErrors = body[1] as Int
                 val elapsedTime = body[2] as Long
@@ -42,7 +42,7 @@ class MessageListenerImpl: MessageListener {
                 print(String.format(INTERPRETER_SUMMARY_FORMAT, statementCount, syntaxErrors, elapsedTime))
             }
             MessageType.COMPILER_SUMMARY -> {
-                val body: List<*> = inputMessage.body as List<*>
+                val body: List<*> = inputMessage.body
                 val instructionCount: Int = body[0] as Int
                 val elapsedTime = body[1] as Float
 
