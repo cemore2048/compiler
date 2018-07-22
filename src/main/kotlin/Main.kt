@@ -1,8 +1,8 @@
 fun main(args: Array<String>) {
     try {
-        val operation: String = args[0]
+        val operation: String = args[0].trim()
 
-        if (operation != "compile" || operation != "execute") {
+        if (!(operation == "compile" || operation == "execute")) {
             throw Exception()
         }
 

@@ -14,7 +14,7 @@ class MessageListenerImpl: MessageListener {
     override fun messageReceived(inputMessage: Message) {
         val type = inputMessage.type
 
-        //each one of these types used to have it's own listener. Agregated all of them in one message listener impl
+        //each one of these types used to have it's own listener. Aggregated all of them in one message listener impl
         when (type) {
             MessageType.SOURCE_LINE  -> {
 

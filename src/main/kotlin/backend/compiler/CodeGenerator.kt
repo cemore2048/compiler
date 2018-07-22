@@ -18,16 +18,10 @@ class CodeGenerator: Backend() {
         sendMessage(Message(MessageType.COMPILER_SUMMARY, listOf<Number>(instructionCount, elapsedTime)))
     }
 
-    override fun addMessageListener(listener: MessageListener) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun addMessageListener(listener: MessageListener) = messageHandler.addListener(listener)
 
-    override fun removeMessageListener(listener: MessageListener) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun removeMessageListener(listener: MessageListener) = messageHandler.removeListener(listener)
 
-    override fun sendMessage(message: Message) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun sendMessage(message: Message) = messageHandler.sendMessage(message)
 
 }
