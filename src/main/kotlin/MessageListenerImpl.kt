@@ -7,7 +7,7 @@ class MessageListenerImpl: MessageListener {
 
     companion object {
         const val SOURCE_LINE_FORMAT = "%03d %s"
-        const val PARSER_SUMMARY_FORMAT = "\n%,20d source lines, \n%,20d syntax, \n%,20.2f\n"
+        const val PARSER_SUMMARY_FORMAT = "\n%,20d source lines, \n%,20d syntax, \n%,20.2f seconds total parsing time\n"
         const val INTERPRETER_SUMMARY_FORMAT = "\n%,20d statements executed. \n%,20d runtime errors, \n%,20.2f seconds total execution time.\n"
         const val COMPILER_SUMMARY_FORMAT = "\n%,20d instructions generated, \n%,20f seconds total code generation time.\n"
     }

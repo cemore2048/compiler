@@ -18,7 +18,7 @@ class MessageHandler {
         notifyListeners()
     }
 
-    fun notifyListeners() {
+    private fun notifyListeners() {
         listeners.forEach {
             it.messageReceived(message!!)
         }

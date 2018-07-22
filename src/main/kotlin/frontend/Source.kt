@@ -55,7 +55,7 @@ class Source(private val reader: BufferedReader): MessageProducer {
     }
 
     @Throws
-    fun readLine() {
+    private fun readLine() {
         line = reader.readLine()
         currentPosition = 0
 
