@@ -3,8 +3,8 @@ package frontend
 open class Token(val source: Source) {
 
     protected var type: TokenType? = null
-    protected var text: String? = null
-    protected var value: Any? = null
+    private var text: String? = null
+    private var value: Any? = null
     var lineNum: Int? = source.lineNum
     protected var position: Int? = source.currentPosition
 
@@ -13,17 +13,17 @@ open class Token(val source: Source) {
     }
 
     @Throws
-    fun extract() {
+    private fun extract() {
         text = currentChar().toString()
         value = null
         nextChar()
     }
 
     @Throws
-    protected fun currentChar(): Char = source.currentChar()
+    private fun currentChar(): Char = source.currentChar
 
     @Throws
-    protected fun nextChar(): Char = source.nextChar()
+    private fun nextChar(): Char = source.nextChar()
 
     protected fun peekChar(): Char = source.peekChar()
 }

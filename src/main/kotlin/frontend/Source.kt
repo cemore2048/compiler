@@ -4,7 +4,7 @@ import message.*
 import java.io.BufferedReader
 import java.io.IOException
 
-class Source(private val reader: BufferedReader): MessageProducer {
+class Source(private val reader: BufferedReader) : MessageProducer {
 
     companion object {
         const val EOL: Char = '\n'
@@ -16,39 +16,39 @@ class Source(private val reader: BufferedReader): MessageProducer {
     var lineNum: Int = 0
     var currentPosition: Int = -2
 
-    @Throws
-    fun currentChar(): Char {
-        val currentLine = line
-        return if (currentPosition == -2) {
-            readLine()
-            nextChar()
-        } else if (line == null) {
-            return EOF
-
-        } else if ((currentPosition == -1) || (currentPosition == line!!.length)) {
-            return EOF
-        } else if (currentPosition > line!!.length) {
-            readLine()
-            nextChar()
-        } else {
-            currentLine!![currentPosition]
+    var currentChar = '0'
+        get() {
+            val currentLine = line
+            return if (currentPosition == -2) {
+                readLine()
+                nextChar()
+            } else if (line == null) {
+                return EOF
+            } else if ((currentPosition == -1) || (currentPosition == line!!.length)) {
+                return EOF
+            } else if (currentPosition > line!!.length) {
+                readLine()
+                nextChar()
+            } else {
+                currentLine!![currentPosition]
+            }
         }
-    }
+
 
     @Throws
     fun nextChar(): Char {
         currentPosition++
-        return currentChar()
+        return currentChar
     }
 
     @Throws
     fun peekChar(): Char {
         if (line == null) {
-           return EOF
+            return EOF
         }
 
         val currentLine = line!!
-        currentChar()
+        currentChar
 
         val nextPos = currentPosition + 1
         return if (nextPos < line!!.length) currentLine[nextPos] else EOL

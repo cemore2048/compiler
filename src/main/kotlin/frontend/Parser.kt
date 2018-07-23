@@ -30,4 +30,3 @@ abstract class Parser(private val scanner: Scanner) : MessageProducer {
 
     override fun sendMessage(message: Message) = messageHandler.sendMessage(message)
 }
-
