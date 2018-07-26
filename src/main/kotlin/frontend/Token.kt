@@ -5,8 +5,8 @@ open class Token(val source: Source) {
     protected var type: TokenType? = null
     private var text: String? = null
     private var value: Any? = null
-    var lineNum: Int? = source.lineNum
-    protected var position: Int? = source.currentPosition
+    var lineNum: Int = source.lineNum
+    var position: Int? = source.currentPosition
 
     init {
         extract()
@@ -20,10 +20,14 @@ open class Token(val source: Source) {
     }
 
     @Throws
-    private fun currentChar(): Char = source.currentChar
+    private fun currentChar(): Char = source.currentChar()
 
     @Throws
     private fun nextChar(): Char = source.nextChar()
 
     protected fun peekChar(): Char = source.peekChar()
+
+    override fun toString(): String {
+        return currentChar().toString()
+    }
 }

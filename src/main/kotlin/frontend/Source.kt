@@ -16,51 +16,47 @@ class Source(private val reader: BufferedReader) : MessageProducer {
     var lineNum: Int = 0
     var currentPosition: Int = -2
 
-    var currentChar = '0'
-        get() {
-            val currentLine = line
+    fun currentChar(): Char {
             return if (currentPosition == -2) {
                 readLine()
                 nextChar()
             } else if (line == null) {
-                return EOF
+                EOF
             } else if ((currentPosition == -1) || (currentPosition == line!!.length)) {
-                return EOF
+                EOL
             } else if (currentPosition > line!!.length) {
                 readLine()
                 nextChar()
             } else {
-                currentLine!![currentPosition]
+                line!![currentPosition]
             }
         }
 
 
     @Throws
     fun nextChar(): Char {
-        currentPosition++
-        return currentChar
+        ++currentPosition
+        return currentChar()
     }
 
     @Throws
     fun peekChar(): Char {
+        currentChar()
         if (line == null) {
             return EOF
         }
 
-        val currentLine = line!!
-        currentChar
-
         val nextPos = currentPosition + 1
-        return if (nextPos < line!!.length) currentLine[nextPos] else EOL
+        return if (nextPos < line!!.length) line!![nextPos] else EOL
     }
 
     @Throws
     private fun readLine() {
         line = reader.readLine()
-        currentPosition = 0
+        currentPosition = -1
 
         if (line != null) {
-            lineNum++
+            ++lineNum
             sendMessage(Message(MessageType.SOURCE_LINE, listOf(lineNum, line!!)))
         }
     }
@@ -73,7 +69,6 @@ class Source(private val reader: BufferedReader) : MessageProducer {
             ex.printStackTrace()
             throw ex
         }
-
     }
 
     override fun addMessageListener(listener: MessageListener) = messageHandler.addListener(listener)

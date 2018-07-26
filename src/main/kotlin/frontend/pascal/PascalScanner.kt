@@ -8,5 +8,12 @@ import frontend.Token
 
 class PascalScanner(source: Source) : Scanner(source) {
     @Throws
-    override fun extractToken(): Token? = if (currentChar() == EOF) EofToken(source) else Token(source)
+    override fun extractToken(): Token? {
+        val currentChar = currentChar()
+        return if (currentChar == EOF) {
+            EofToken(source)
+        } else {
+            Token(source)
+        }
+    }
 }

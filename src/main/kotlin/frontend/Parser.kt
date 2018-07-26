@@ -14,7 +14,8 @@ abstract class Parser(private val scanner: Scanner) : MessageProducer {
 
     val intermediateCode: IntermediateCodeGenerator? = null
 
-    var currentToken: Token? = scanner.currentToken()
+    var currentToken: Token? = null
+        get() = scanner.currentToken()
 
     var nextToken: Token? = null
         get() = scanner.nextToken()

@@ -15,7 +15,7 @@ abstract class Scanner(val source: Source) {
     abstract fun extractToken(): Token?
 
     @Throws
-    fun currentChar() = source.currentChar
+    fun currentChar() = source.currentChar()
 
     fun nextChar() = source.nextChar()
 }
