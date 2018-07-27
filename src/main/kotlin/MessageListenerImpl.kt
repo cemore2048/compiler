@@ -1,4 +1,5 @@
 import frontend.TokenType
+import frontend.pascal.tokens.PascalTokenType
 import message.Message
 import message.MessageListener
 import message.MessageType
@@ -86,7 +87,7 @@ class MessageListenerImpl : MessageListener {
                 print(String.format(TOKEN_FORMAT, tokenType, line, position, tokenText))
 
                 tokenValue.let {
-                    if (tokenType == STRING) {
+                    if (tokenType == PascalTokenType.STRING) {
                         tokenValue = "\" $tokenValue \""
                     }
 
