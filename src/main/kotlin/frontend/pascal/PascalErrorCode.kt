@@ -1,6 +1,6 @@
 package frontend.pascal
 
-enum class PascalErrorCode(errorCode: String) {
+enum class PascalErrorCode(errorMessage: String, status: Int = 0) {
     ALREADY_FORWARDED("Already specified in FORWARD"),
     CASE_CONSTANT_REUSED("CASE constant reused"),
     IDENTIFIER_REDEFINED("Redefined identifier"),
@@ -58,4 +58,7 @@ enum class PascalErrorCode(errorCode: String) {
     UNIMPLEMENTED("Unimplemented feature"),
     UNRECOGNIZABLE("Unrecognizable input"),
     WRONG_NUMBER_OF_PARMS("Wrong number of actual parameters"),
+
+    IO_ERROR("Object I/O error", -101),
+    TOO_MANY_ERRORS("Too many syntax errors!", -102)
 }

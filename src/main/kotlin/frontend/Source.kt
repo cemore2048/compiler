@@ -32,7 +32,6 @@ class Source(private val reader: BufferedReader) : MessageProducer {
             }
         }
 
-
     @Throws
     fun nextChar(): Char {
         ++currentPosition
