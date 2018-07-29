@@ -20,10 +20,10 @@ open class Token(val source: Source) {
     }
 
     @Throws
-    private fun currentChar(): Char = source.currentChar()
+    protected fun currentChar(): Char = source.currentChar()
 
     @Throws
-    private fun nextChar(): Char = source.nextChar()
+    protected fun nextChar(): Char = source.nextChar()
 
     protected fun peekChar(): Char = source.peekChar()
 
