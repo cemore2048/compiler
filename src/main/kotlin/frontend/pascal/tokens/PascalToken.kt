@@ -1,4 +1,6 @@
 package frontend.pascal.tokens
 
-class PascalToken {
-}
+import frontend.Source
+import frontend.Token
+
+open class PascalToken(source: Source): Token(source) {}
