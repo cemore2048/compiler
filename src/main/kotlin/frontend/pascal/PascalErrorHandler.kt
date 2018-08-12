@@ -5,7 +5,7 @@ import frontend.Token
 import message.Message
 import message.MessageType
 
-class PascalErrorHandler {
+open class PascalErrorHandler {
     companion object {
         var MAX_ERRORS = 25
         var errorCount = 0

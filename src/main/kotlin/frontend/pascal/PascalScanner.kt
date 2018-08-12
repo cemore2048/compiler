@@ -11,7 +11,6 @@ class PascalScanner(source: Source) : Scanner(source) {
     @Throws
     override fun extractToken(): Token? {
         skipWhiteSpace()
-        val token: Token? = currentToken()
         val currentChar = currentChar()
 
         return when {

@@ -3,7 +3,7 @@ package frontend.pascal.tokens
 import frontend.Source
 
 class PascalWordToken(source: Source) : PascalToken(source) {
-    fun extract() {
+    override fun extract() {
         val textBuffer = StringBuilder()
         var currentChar = currentChar()
 
@@ -11,6 +11,8 @@ class PascalWordToken(source: Source) : PascalToken(source) {
             textBuffer.append(currentChar)
             currentChar = nextChar()
         }
+
+        text = textBuffer.toString()
 
         type =
                 if (PascalTokenType.RESERVED_WORDS.contains(textBuffer.toString()))

@@ -7,7 +7,7 @@ import java.lang.Double.MAX_EXPONENT
 
 
 class PascalNumberToken(source: Source): PascalToken(source) {
-    fun extract() {
+    override fun extract() {
         val textBuffer = StringBuilder()
         extractNumber(textBuffer)
         text = textBuffer.toString()

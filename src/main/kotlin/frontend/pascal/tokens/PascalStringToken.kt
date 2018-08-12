@@ -6,7 +6,7 @@ import frontend.pascal.PascalErrorCode
 
 
 class PascalStringToken(source: Source): PascalToken(source) {
-    private fun extract() {
+    override  fun extract() {
         val textBuffer = StringBuilder()
         val valueBuffer = StringBuilder()
 

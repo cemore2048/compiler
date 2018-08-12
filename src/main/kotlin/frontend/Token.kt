@@ -13,7 +13,7 @@ open class Token(val source: Source) {
     }
 
     @Throws
-    private fun extract() {
+    open fun extract() {
         text = currentChar().toString()
         value = null
         nextChar()

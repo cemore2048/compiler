@@ -6,7 +6,7 @@ import frontend.pascal.PascalErrorCode
 
 class PascalSpecialSymbolToken(source: Source): PascalToken(source) {
 
-    fun extract() {
+    override fun extract() {
         var currentChar = currentChar()
 
         text = currentChar.toString()
