@@ -32,7 +32,7 @@ enum class PascalTokenType(identifier: String = "") : TokenType {
 
         var RESERVED_WORDS: Set<String> = setOf()
             set(value) {
-                var values = mutableListOf<String>()
+                val values = value.toMutableList()
                 for (i in FIRST_RESERVED_INDEX until LAST_RESERVED_INDEX) {
                     values.add(tokenValues[i].toString().toLowerCase())
                 }
@@ -41,7 +41,7 @@ enum class PascalTokenType(identifier: String = "") : TokenType {
 
         var SPECIAL_SYMBOLS: Set<String> = setOf()
             set(value) {
-                var values = mutableListOf<String>()
+                val values = value.toMutableList()
                 for (i in FIRST_SPECIAL_INDEX until LAST_SPECIAL_INDEX) {
                     values.add(tokenValues[i].toString().toLowerCase())
                 }
