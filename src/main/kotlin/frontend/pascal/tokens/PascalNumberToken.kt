@@ -1,6 +1,5 @@
 package frontend.pascal.tokens
 
-import com.sun.tools.internal.xjc.ErrorReceiver
 import frontend.Source
 import frontend.pascal.PascalErrorCode
 import java.lang.Double.MAX_EXPONENT

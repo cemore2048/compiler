@@ -1,7 +1,9 @@
 package frontend.pascal
 
-import frontend.*
-import frontend.pascal.tokens.PascalErrorToken
+import frontend.EofToken
+import frontend.Parser
+import frontend.Scanner
+import frontend.TokenType
 import frontend.pascal.tokens.PascalTokenType
 import message.Message
 import message.MessageType.PARSER_SUMMARY

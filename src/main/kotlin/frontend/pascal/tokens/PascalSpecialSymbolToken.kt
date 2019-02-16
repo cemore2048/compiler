@@ -1,7 +1,6 @@
 package frontend.pascal.tokens
 
 import frontend.Source
-import frontend.Token
 import frontend.pascal.PascalErrorCode
 
 class PascalSpecialSymbolToken(source: Source): PascalToken(source) {

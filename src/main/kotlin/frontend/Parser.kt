@@ -2,6 +2,7 @@ package frontend
 
 import intermediate.IntermediateCodeGenerator
 import intermediate.SymbolTable
+import intermediate.SymbolTableFactory
 import message.Message
 import message.MessageHandler
 import message.MessageListener
@@ -30,4 +31,9 @@ abstract class Parser(private val scanner: Scanner) : MessageProducer {
     override fun removeMessageListener(listener: MessageListener) = messageHandler.removeListener(listener)
 
     override fun sendMessage(message: Message) = messageHandler.sendMessage(message)
+
+    companion object {
+        val symbolTableStack = SymbolTableFactory.createSymbolTableStack()
+        val messageHandler = MessageHandler()
+    }
 }
