@@ -5,8 +5,8 @@ import frontend.Source.Companion.EOF
 import frontend.pascal.PascalErrorCode
 
 
-class PascalStringToken(source: Source): PascalToken(source) {
-    override  fun extract() {
+class PascalStringToken(source: Source) : PascalToken(source) {
+    override fun extract() {
         val textBuffer = StringBuilder()
         val valueBuffer = StringBuilder()
 

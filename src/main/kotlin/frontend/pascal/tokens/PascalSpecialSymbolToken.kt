@@ -3,15 +3,15 @@ package frontend.pascal.tokens
 import frontend.Source
 import frontend.pascal.PascalErrorCode
 
-class PascalSpecialSymbolToken(source: Source): PascalToken(source) {
+class PascalSpecialSymbolToken(source: Source) : PascalToken(source) {
 
     override fun extract() {
         var currentChar = currentChar()
 
         text = currentChar.toString()
 
-        when(currentChar) {
-            '+', '-', '*', '/', ',',';', '\'', '=', '(', ')', '[', ']', '{', '}', '^' -> nextChar()
+        when (currentChar) {
+            '+', '-', '*', '/', ',', ';', '\'', '=', '(', ')', '[', ']', '{', '}', '^' -> nextChar()
             ':' -> {
                 currentChar = nextChar()
 

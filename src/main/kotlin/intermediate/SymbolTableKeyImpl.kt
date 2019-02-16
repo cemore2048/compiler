@@ -1,20 +1,20 @@
 package intermediate
 
-sealed class SymbolTableKeyImpl: SymbolTableKey {
+sealed class SymbolTableKeyImpl : SymbolTableKey {
     //Constant
-    object ConstantValue: SymbolTableKeyImpl()
+    object ConstantValue : SymbolTableKeyImpl()
 
     //Procedure or function
-    object RoutineCode: SymbolTableKeyImpl()
+    object RoutineCode : SymbolTableKeyImpl()
 
-    object RoutineSymbolTable: SymbolTableKeyImpl()
+    object RoutineSymbolTable : SymbolTableKeyImpl()
 
-    object RoutineIntermediateCode: SymbolTableKeyImpl()
+    object RoutineIntermediateCode : SymbolTableKeyImpl()
 
-    object RoutineParams: SymbolTableKeyImpl()
+    object RoutineParams : SymbolTableKeyImpl()
 
-    object RoutineRoutines: SymbolTableKeyImpl()
+    object RoutineRoutines : SymbolTableKeyImpl()
 
     //variable or record field value
-    object DataValue: SymbolTableKeyImpl()
+    object DataValue : SymbolTableKeyImpl()
 }

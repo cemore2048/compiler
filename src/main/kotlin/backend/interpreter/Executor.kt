@@ -7,10 +7,10 @@ import message.Message
 import message.MessageListener
 import message.MessageType
 
-class Executor: Backend() {
+class Executor : Backend() {
     override fun process(iCode: IntermediateCodeGenerator, symbolTable: SymbolTable) {
         val startTime: Long = System.currentTimeMillis()
-        val elapsedTime: Float= (System.currentTimeMillis() - startTime)/1000f
+        val elapsedTime: Float = (System.currentTimeMillis() - startTime) / 1000f
         val executionCount = 0
         val runtimeErrors = 0
 

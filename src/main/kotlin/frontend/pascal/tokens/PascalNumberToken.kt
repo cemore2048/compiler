@@ -5,7 +5,7 @@ import frontend.pascal.PascalErrorCode
 import java.lang.Double.MAX_EXPONENT
 
 
-class PascalNumberToken(source: Source): PascalToken(source) {
+class PascalNumberToken(source: Source) : PascalToken(source) {
     override fun extract() {
         val textBuffer = StringBuilder()
         extractNumber(textBuffer)
@@ -37,7 +37,7 @@ class PascalNumberToken(source: Source): PascalToken(source) {
             nextChar()
 
             fractionDigits = unsignedIntegerDigits(textBuffer)
-            if ( type == PascalTokenType.ERROR) {
+            if (type == PascalTokenType.ERROR) {
                 return
             }
         }
@@ -104,7 +104,7 @@ class PascalNumberToken(source: Source): PascalToken(source) {
 
         while ((index < digits.length) && (integerValue >= prevValue)) {
             prevValue = integerValue
-            integerValue = 10*integerValue + digits[index++].toInt() // this conversion to an int here might be wrong
+            integerValue = 10 * integerValue + digits[index++].toInt() // this conversion to an int here might be wrong
         }
 
         return if (integerValue >= prevValue) {
@@ -139,7 +139,7 @@ class PascalNumberToken(source: Source): PascalToken(source) {
 
         var index = 0
         while (index < digits.length) {
-            floatValue = 10*floatValue + digits[index++].toFloat()
+            floatValue = 10 * floatValue + digits[index++].toFloat()
         }
 
         if (exponentValue != 0) {

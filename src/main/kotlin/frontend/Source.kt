@@ -17,20 +17,20 @@ class Source(private val reader: BufferedReader) : MessageProducer {
     var currentPosition: Int = -2
 
     fun currentChar(): Char {
-            return if (currentPosition == -2) {
-                readLine()
-                nextChar()
-            } else if (line == null) {
-                EOF
-            } else if ((currentPosition == -1) || (currentPosition == line!!.length)) {
-                EOL
-            } else if (currentPosition > line!!.length) {
-                readLine()
-                nextChar()
-            } else {
-                line!![currentPosition]
-            }
+        return if (currentPosition == -2) {
+            readLine()
+            nextChar()
+        } else if (line == null) {
+            EOF
+        } else if ((currentPosition == -1) || (currentPosition == line!!.length)) {
+            EOL
+        } else if (currentPosition > line!!.length) {
+            readLine()
+            nextChar()
+        } else {
+            line!![currentPosition]
         }
+    }
 
     @Throws
     fun nextChar(): Char {

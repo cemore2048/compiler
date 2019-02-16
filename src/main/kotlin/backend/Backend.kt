@@ -5,7 +5,7 @@ import intermediate.SymbolTable
 import message.MessageHandler
 import message.MessageProducer
 
-abstract class Backend: MessageProducer {
+abstract class Backend : MessageProducer {
     companion object {
         val messageHandler = MessageHandler()
     }

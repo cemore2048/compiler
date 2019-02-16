@@ -1,6 +1,6 @@
 package intermediate
 
-class SymbolTableStackImpl: ArrayList<SymbolTable>(), SymbolTableStack {
+class SymbolTableStackImpl : ArrayList<SymbolTable>(), SymbolTableStack {
     override var currentNestingLevel: Int = 0
 
     override var localSymbolTable: SymbolTable? = null
@@ -10,6 +10,7 @@ class SymbolTableStackImpl: ArrayList<SymbolTable>(), SymbolTableStack {
         currentNestingLevel = 0
         add(SymbolTableFactory.createSymbolTable(currentNestingLevel))
     }
+
     override fun enterLocal(name: String): SymbolTableEntry = get(currentNestingLevel).enter(name)
 
     override fun lookupLocal(name: String): SymbolTableEntry = get(currentNestingLevel).lookupSymbolTable(name)
