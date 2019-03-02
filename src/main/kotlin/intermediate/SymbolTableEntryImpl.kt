@@ -1,8 +1,9 @@
 package intermediate
 
 class SymbolTableEntryImpl(override var name: String,
-                           override var symbolTable: SymbolTable,
-                           override var lineNumbers: MutableList<Int>) : HashMap<SymbolTableKey, Any>(), SymbolTableEntry {
+                           override var symbolTable: SymbolTable) : HashMap<SymbolTableKey, Any>(), SymbolTableEntry {
+
+    override var lineNumbers: MutableList<Int> = ArrayList()
 
     override fun setAttribute(key: SymbolTableKey, value: Any) {
         put(key, value)
