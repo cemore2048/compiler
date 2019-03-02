@@ -13,7 +13,7 @@ class SymbolTableStackImpl : ArrayList<SymbolTable>(), SymbolTableStack {
 
     override fun enterLocal(name: String): SymbolTableEntry = get(currentNestingLevel).enter(name)
 
-    override fun lookupLocal(name: String): SymbolTableEntry = get(currentNestingLevel).lookupSymbolTable(name)
+    override fun lookupLocal(name: String): SymbolTableEntry? = get(currentNestingLevel).lookupSymbolTable(name)
 
-    override fun lookup(name: String): SymbolTableEntry = lookupLocal(name)
+    override fun lookup(name: String): SymbolTableEntry? = lookupLocal(name)
 }

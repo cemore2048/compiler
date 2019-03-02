@@ -25,17 +25,20 @@ class PascalParserTD(scanner: Scanner) : Parser(scanner) {
                 val token = currentToken
                 val tokenType: TokenType = token?.type!!
 
-                if (tokenType != PascalTokenType.ERROR) {
-                    sendMessage(Message(TOKEN,
-                            listOf(token.lineNum,
-                                    token.position!!,
-                                    tokenType,
-                                    token.text!!,
-                                    token.value)))
-                } else {
+                if (tokenType == PascalTokenType.IDENTIFIER) {
+                    val name = token.text?.toLowerCase()
+
+                    // If it's not already in the symbol table,
+                    // create and enter a new entry for the identifier
+
+                    val entry = symbolTableStack.lookup(name!!) ?: symbolTableStack.enterLocal(name)
+                    entry.appendLineNumber(token.lineNum)
+
+                } else if (tokenType == PascalTokenType.ERROR) {
                     errorHandler.flag(token, token.value as PascalErrorCode, this)
                 }
             }
+
             val elapsedTime = (System.currentTimeMillis() - startTime) / 1000f
             sendMessage(Message(PARSER_SUMMARY, listOf<Number>(currentToken!!.lineNum, getErrorCount(), elapsedTime)))
         } catch (ex: IOException) {

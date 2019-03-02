@@ -8,9 +8,9 @@ interface SymbolTableStack {
 
     fun enterLocal(name: String): SymbolTableEntry
 
-    fun lookupLocal(name: String): SymbolTableEntry
+    fun lookupLocal(name: String): SymbolTableEntry?
 
-    fun lookup(name: String): SymbolTableEntry
+    fun lookup(name: String): SymbolTableEntry?
 
 
 }
