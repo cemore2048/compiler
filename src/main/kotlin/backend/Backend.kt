@@ -2,6 +2,7 @@ package backend
 
 import intermediate.IntermediateCodeGenerator
 import intermediate.SymbolTable
+import intermediate.SymbolTableStack
 import message.MessageHandler
 import message.MessageProducer
 
@@ -13,5 +14,5 @@ abstract class Backend : MessageProducer {
     protected var symbolTable: SymbolTable? = null
     protected var iCode: IntermediateCodeGenerator? = null
 
-    abstract fun process(iCode: IntermediateCodeGenerator, symbolTable: SymbolTable)
+    abstract fun process(iCode: IntermediateCodeGenerator, symbolTableStack: SymbolTableStack)
 }

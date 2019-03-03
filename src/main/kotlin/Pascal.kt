@@ -5,6 +5,7 @@ import frontend.Parser
 import frontend.Source
 import intermediate.IntermediateCodeGenerator
 import intermediate.SymbolTable
+import intermediate.SymbolTableStack
 import java.io.BufferedReader
 import java.io.FileReader
 
@@ -13,7 +14,7 @@ class Pascal(operation: String, filePath: String, flags: String) {
     lateinit var parser: Parser
     lateinit var source: Source
     lateinit var iCode: IntermediateCodeGenerator
-    lateinit var symbolTable: SymbolTable
+    lateinit var symbolTableStack: SymbolTableStack
     lateinit var backend: Backend
     lateinit var operation: String
 
@@ -21,6 +22,15 @@ class Pascal(operation: String, filePath: String, flags: String) {
         try {
             val intermediate = flags.indexOf('i') > -1
             val xref = flags.indexOf('x') > -1
+            symbolTableStack = parser.symbolTableStack
+
+            if (xref) {
+                val crossReferencer = CrossReferencer()
+                crossReferencer.print(symbolTableStack)
+
+            }
+
+            backend.process(iCode, symbolTableStack)
 
             source = Source(BufferedReader(FileReader(filePath)))
             source.addMessageListener(MessageListenerImpl())

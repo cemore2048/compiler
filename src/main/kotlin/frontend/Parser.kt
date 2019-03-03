@@ -15,6 +15,8 @@ abstract class Parser(private val scanner: Scanner) : MessageProducer {
 
     val intermediateCode: IntermediateCodeGenerator? = null
 
+    val symbolTableStack = SymbolTableFactory.createSymbolTableStack()
+
     var currentToken: Token? = null
         get() = scanner.currentToken()
 
@@ -33,7 +35,6 @@ abstract class Parser(private val scanner: Scanner) : MessageProducer {
     override fun sendMessage(message: Message) = messageHandler.sendMessage(message)
 
     companion object {
-        val symbolTableStack = SymbolTableFactory.createSymbolTableStack()
         val messageHandler = MessageHandler()
     }
 }
