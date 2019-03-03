@@ -1,0 +1,4 @@
+package intermediate
+
+interface IntermediateCodeNodeType {
+}
