@@ -1,4 +1,5 @@
 package intermediate
 
-interface IntermediateCodeKey {
+enum class IntermediateCodeKey {
+    LINE, ID, VALUE
 }
