@@ -22,15 +22,6 @@ class Pascal(operation: String, filePath: String, flags: String) {
         try {
             val intermediate = flags.indexOf('i') > -1
             val xref = flags.indexOf('x') > -1
-            symbolTableStack = parser.symbolTableStack
-
-            if (xref) {
-                val crossReferencer = CrossReferencer()
-                crossReferencer.print(symbolTableStack)
-
-            }
-
-            backend.process(iCode, symbolTableStack)
 
             source = Source(BufferedReader(FileReader(filePath)))
             source.addMessageListener(MessageListenerImpl())
@@ -43,6 +34,17 @@ class Pascal(operation: String, filePath: String, flags: String) {
 
             parser.parse()
             source.close()
+
+
+            symbolTableStack = parser.symbolTableStack
+
+            if (xref) {
+                val crossReferencer = CrossReferencer()
+                crossReferencer.print(symbolTableStack)
+
+            }
+
+            backend.process(iCode, symbolTableStack)
 
 //            iCode = parser.intermediateCode!!
 //            symbolTable = parser.symbolTable!!

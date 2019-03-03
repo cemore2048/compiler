@@ -3,12 +3,13 @@ package backend.compiler
 import backend.Backend
 import intermediate.IntermediateCodeGenerator
 import intermediate.SymbolTable
+import intermediate.SymbolTableStack
 import message.Message
 import message.MessageListener
 import message.MessageType
 
 class CodeGenerator : Backend() {
-    override fun process(iCode: IntermediateCodeGenerator, symbolTable: SymbolTable) {
+    override fun process(iCode: IntermediateCodeGenerator, symbolTableStack: SymbolTableStack) {
         val startTime: Long = System.currentTimeMillis()
         val elapsedTime: Float = (System.currentTimeMillis() - startTime) / 1000f
 
