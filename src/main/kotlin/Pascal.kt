@@ -4,8 +4,8 @@ import frontend.FrontEndFactory
 import frontend.Parser
 import frontend.Source
 import intermediate.IntermediateCodeGenerator
-import intermediate.SymbolTable
 import intermediate.SymbolTableStack
+import util.CrossReferencer
 import java.io.BufferedReader
 import java.io.FileReader
 
