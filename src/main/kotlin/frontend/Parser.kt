@@ -8,7 +8,7 @@ import message.MessageHandler
 import message.MessageListener
 import message.MessageProducer
 
-abstract class Parser(private val scanner: Scanner) : MessageProducer {
+abstract class Parser(val scanner: Scanner) : MessageProducer {
 
     var symbolTable: SymbolTable? = null
     var messageHandler: MessageHandler = MessageHandler()

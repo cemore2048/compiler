@@ -1,6 +1,6 @@
 package frontend
 
-import frontend.pascal.PascalParserTD
+import frontend.pascal.parsers.PascalParserTD
 import frontend.pascal.PascalScanner
 
 object FrontEndFactory {
