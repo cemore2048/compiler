@@ -7,7 +7,7 @@ import intermediate.IntermediateCodeFactory
 import intermediate.IntermediateCodeNode
 import intermediate.IntermediateCodeNodeType
 
-class CompountStatementParser(pascalParserTD: PascalParserTD): StatementParser(pascalParserTD) {
+class CompountStatementParser(pascalParserTD: PascalParserTD) : StatementParser(pascalParserTD) {
 
     override fun parse(token: Token): IntermediateCodeNode {
         var localToken: Token? = token

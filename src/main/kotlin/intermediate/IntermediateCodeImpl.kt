@@ -1,6 +1,6 @@
 package intermediate
 
-class IntermediateCodeImpl: IntermediateCode {
+class IntermediateCodeImpl : IntermediateCode {
 
     private var root: IntermediateCodeNode? = null
 

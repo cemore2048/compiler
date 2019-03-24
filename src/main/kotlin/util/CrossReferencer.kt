@@ -2,7 +2,6 @@ package util
 
 import intermediate.SymbolTable
 import intermediate.SymbolTableStack
-import java.lang.StringBuilder
 
 class CrossReferencer {
 
@@ -35,6 +34,7 @@ class CrossReferencer {
 
         }
     }
+
     companion object {
         private const val NAME_WIDTH = 16
         private const val NAME_FORMAT = "%- ${NAME_WIDTH}s"

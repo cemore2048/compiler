@@ -2,7 +2,6 @@ package backend.interpreter
 
 import backend.Backend
 import intermediate.IntermediateCodeGenerator
-import intermediate.SymbolTable
 import intermediate.SymbolTableStack
 import message.Message
 import message.MessageListener

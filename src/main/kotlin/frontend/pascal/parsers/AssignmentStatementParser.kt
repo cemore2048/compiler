@@ -1,12 +1,14 @@
 package frontend.pascal.parsers
 
-import com.sun.tools.example.debug.expr.ExpressionParser
 import frontend.Token
 import frontend.pascal.PascalErrorCode
 import frontend.pascal.tokens.PascalTokenType
-import intermediate.*
+import intermediate.IntermediateCodeFactory
+import intermediate.IntermediateCodeKey
+import intermediate.IntermediateCodeNode
+import intermediate.IntermediateCodeNodeType
 
-class AssignmentStatementParser(pascalParserTD: PascalParserTD): StatementParser(pascalParserTD) {
+class AssignmentStatementParser(pascalParserTD: PascalParserTD) : StatementParser(pascalParserTD) {
 
     override fun parse(token: Token): IntermediateCodeNode {
         val assignmentNode = IntermediateCodeFactory.createIntermediateCodeNode(IntermediateCodeNodeType.ASSIGNMENT)

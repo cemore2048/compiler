@@ -7,9 +7,8 @@ import intermediate.IntermediateCodeNode
 import intermediate.IntermediateCodeNodeImpl
 import intermediate.IntermediateCodeNodeType
 import java.util.*
-import kotlin.collections.HashMap
 
-class ExpressionParser(pascalParserTD: PascalParserTD): PascalParserTD(pascalParserTD) {
+class ExpressionParser(pascalParserTD: PascalParserTD) : PascalParserTD(pascalParserTD) {
 
     init {
         REL_OPS_MAP.put(PascalTokenType.EQUALS, IntermediateCodeNodeType.EQ)

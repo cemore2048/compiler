@@ -42,7 +42,7 @@ open class PascalParserTD(parent: PascalParserTD) : Parser(parent.scanner) {
                 intermediateCode.setRoot(it)
             }
 
-            val elapsedTime = (System.currentTimeMillis() - startTime)/1000f
+            val elapsedTime = (System.currentTimeMillis() - startTime) / 1000f
             sendMessage(Message(MessageType.PARSER_SUMMARY, listOf<Number>(token?.lineNum!!, getErrorCount(), elapsedTime)))
         } catch (ex: IOException) {
             errorHandler.abortTranslation(PascalErrorCode.IO_ERROR, this)

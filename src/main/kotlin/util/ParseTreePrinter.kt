@@ -1,8 +1,10 @@
 package util
 
-import intermediate.*
+import intermediate.IntermediateCode
+import intermediate.IntermediateCodeNode
+import intermediate.IntermediateCodeNodeImpl
+import intermediate.SymbolTableEntry
 import java.io.PrintStream
-import java.lang.StringBuilder
 
 class ParseTreePrinter(val printStream: PrintStream,
                        var lineLength: Int = 0,
@@ -112,6 +114,7 @@ class ParseTreePrinter(val printStream: PrintStream,
             lineLength = 0
         }
     }
+
     companion object {
         private const val INDENT_WIDTH = 4
         private const val LINE_WIDTH = 80

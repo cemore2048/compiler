@@ -1,7 +1,7 @@
 package frontend
 
-import frontend.pascal.parsers.PascalParserTD
 import frontend.pascal.PascalScanner
+import frontend.pascal.parsers.PascalParserTD
 
 object FrontEndFactory {
     fun createParser(language: String, type: String, source: Source): Parser {
