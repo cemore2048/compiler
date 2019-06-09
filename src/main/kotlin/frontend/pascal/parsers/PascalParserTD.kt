@@ -1,6 +1,7 @@
 package frontend.pascal.parsers
 
 import frontend.Parser
+import frontend.Scanner
 import frontend.pascal.PascalErrorCode
 import frontend.pascal.PascalErrorHandler
 import frontend.pascal.tokens.PascalTokenType
@@ -10,7 +11,7 @@ import message.Message
 import message.MessageType
 import java.io.IOException
 
-open class PascalParserTD(parent: PascalParserTD) : Parser(parent.scanner) {
+open class PascalParserTD(scanner: Scanner) : Parser(scanner) {
 
     companion object {
         val errorHandler: PascalErrorHandler = PascalErrorHandler()
