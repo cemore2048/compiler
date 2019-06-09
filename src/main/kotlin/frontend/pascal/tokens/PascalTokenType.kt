@@ -4,7 +4,7 @@ import frontend.TokenType
 
 enum class PascalTokenType(identifier: String = "") : TokenType {
     AND, ARRAY, BEGIN, CASE, CONST, DIV, DO, DOWNTO, ELSE, END,
-    FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, MMOD, NIL, NOT, OF,
+    FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, MOD, NIL, NOT, OF,
     OR, PACKED, PROCEDURE, PROGRAM, RECORD, REPEAT, SET, THEN, TO,
     TYPE, UNTIL, VAR, WHILE, WITH,
 

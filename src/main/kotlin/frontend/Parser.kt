@@ -17,10 +17,10 @@ abstract class Parser(val scanner: Scanner) : MessageProducer {
 
     val symbolTableStack = SymbolTableFactory.createSymbolTableStack()
 
-    var currentToken: Token? = null
+    val currentToken: Token?
         get() = scanner.currentToken()
 
-    var nextToken: Token? = null
+    val nextToken: Token?
         get() = scanner.nextToken()
 
     @Throws

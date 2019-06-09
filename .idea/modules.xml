@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/compilerProject.iml" filepath="$PROJECT_DIR$/.idea/modules/compilerProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/compilerProject.iml" filepath="$PROJECT_DIR$/.idea/modules/compilerProject.iml" group="compilerProject" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/compilerProject_main.iml" filepath="$PROJECT_DIR$/.idea/modules/compilerProject_main.iml" group="compilerProject" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/compilerProject_test.iml" filepath="$PROJECT_DIR$/.idea/modules/compilerProject_test.iml" group="compilerProject" />
     </modules>

@@ -24,7 +24,7 @@ class IntermediateCodeNodeImpl(var nodeType: IntermediateCodeNodeType) : HashMap
     override fun getAttribute(key: IntermediateCodeKey): Any? = get(key)
 
     override fun copy(): IntermediateCodeNode {
-        val copy = IntermediateCodeFactory.createIntermediateCodeNode(nodeType) as IntermediateCodeNodeImpl
+        val copy = IntermediateCodeFactory.createIntermediateCodeNode(nodeType)
 
         val attributes: Set<Map.Entry<IntermediateCodeKey, Any>> = entries
 
