@@ -1,6 +1,3 @@
 package intermediate
 
-interface IntermediateCodeGenerator {
-
-
-}
+interface IntermediateCodeGenerator

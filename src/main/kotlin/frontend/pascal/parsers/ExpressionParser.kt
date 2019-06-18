@@ -4,7 +4,10 @@ import frontend.Token
 import frontend.TokenType
 import frontend.pascal.PascalErrorCode
 import frontend.pascal.tokens.PascalTokenType
-import intermediate.*
+import intermediate.IntermediateCodeFactory
+import intermediate.IntermediateCodeKey
+import intermediate.IntermediateCodeNode
+import intermediate.IntermediateCodeNodeType
 import java.util.*
 
 class ExpressionParser(pascalParserTD: PascalParserTD) : PascalParserTD(pascalParserTD) {
@@ -115,7 +118,7 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : PascalParserTD(pascalPa
 
         var rootNode: IntermediateCodeNode? = null
 
-        when(tokenType as PascalTokenType) {
+        when (tokenType as PascalTokenType) {
             PascalTokenType.IDENTIFIER -> {
                 val name = localToken?.text?.toLowerCase()
                 var id = symbolTableStack.lookup(name!!)
@@ -174,12 +177,14 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : PascalParserTD(pascalPa
                 }
             }
 
-            else -> { errorHandler.flag(localToken!!, PascalErrorCode.UNEXPECTED_TOKEN, this )}
+            else -> {
+                errorHandler.flag(localToken!!, PascalErrorCode.UNEXPECTED_TOKEN, this)
+            }
 
         }
         return rootNode!!
     }
-    
+
     companion object {
         val REL_OPS: EnumSet<PascalTokenType> = EnumSet.of(PascalTokenType.EQUALS,
                 PascalTokenType.NOT_EQUALS,

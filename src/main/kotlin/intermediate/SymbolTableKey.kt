@@ -1,4 +1,3 @@
 package intermediate
 
-interface SymbolTableKey {
-}
+interface SymbolTableKey

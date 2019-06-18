@@ -1,3 +1,3 @@
 package frontend
 
-interface TokenType {}
+interface TokenType
