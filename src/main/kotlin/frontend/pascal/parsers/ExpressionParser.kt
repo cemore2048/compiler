@@ -8,9 +8,10 @@ import intermediate.IntermediateCodeFactory
 import intermediate.IntermediateCodeKey
 import intermediate.IntermediateCodeNode
 import intermediate.IntermediateCodeNodeType
+import java.sql.Statement
 import java.util.*
 
-class ExpressionParser(pascalParserTD: PascalParserTD) : PascalParserTD(pascalParserTD) {
+class ExpressionParser(pascalParserTD: PascalParserTD) : StatementParser(pascalParserTD) {
 
     init {
         REL_OPS_MAP.put(PascalTokenType.EQUALS, IntermediateCodeNodeType.EQ)
@@ -21,7 +22,7 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : PascalParserTD(pascalPa
         REL_OPS_MAP.put(PascalTokenType.GREATER_EQUALS, IntermediateCodeNodeType.GE)
     }
 
-    fun parse(token: Token): IntermediateCodeNode = parseExpression(token)
+    override fun parse(token: Token): IntermediateCodeNode = parseExpression(token)
 
     private fun parseExpression(token: Token): IntermediateCodeNode {
         var rootNode: IntermediateCodeNode = parseSimpleExpression(token)

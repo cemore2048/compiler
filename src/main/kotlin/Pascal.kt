@@ -3,6 +3,7 @@ import backend.BackendFactory
 import frontend.FrontEndFactory
 import frontend.Parser
 import frontend.Source
+import intermediate.IntermediateCode
 import intermediate.IntermediateCodeGenerator
 import intermediate.SymbolTableStack
 import util.CrossReferencer
@@ -13,7 +14,7 @@ class Pascal(operation: String, filePath: String, flags: String) {
 
     lateinit var parser: Parser
     lateinit var source: Source
-    lateinit var iCode: IntermediateCodeGenerator
+    lateinit var iCode: IntermediateCode
     lateinit var symbolTableStack: SymbolTableStack
     lateinit var backend: Backend
     lateinit var operation: String

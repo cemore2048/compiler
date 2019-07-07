@@ -6,7 +6,7 @@ import intermediate.IntermediateCodeNodeType
 import message.Message
 import message.MessageType
 
-class StatementExecutor(parent: Executor) : Executor(parent) {
+open class StatementExecutor(parent: Executor) : Executor(parent) {
 
     /**
      * Execute a statement
@@ -15,7 +15,7 @@ class StatementExecutor(parent: Executor) : Executor(parent) {
      * @return null
      */
 
-    fun execute(node: IntermediateCodeNode): Executor? {
+    open fun execute(node: IntermediateCodeNode): Executor? {
         val nodeType: IntermediateCodeNodeType = node.getType()
 
         //send message about current source line

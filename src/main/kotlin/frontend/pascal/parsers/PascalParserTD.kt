@@ -11,7 +11,9 @@ import message.Message
 import message.MessageType
 import java.io.IOException
 
-open class PascalParserTD(parser: PascalParserTD) : Parser(parser.scanner) {
+open class PascalParserTD(scanner: Scanner) : Parser(scanner) {
+
+    constructor(parent: PascalParserTD): this(parent.scanner)
 
     companion object {
         val errorHandler: PascalErrorHandler = PascalErrorHandler()

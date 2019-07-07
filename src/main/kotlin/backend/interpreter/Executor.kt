@@ -6,10 +6,10 @@ import message.Message
 import message.MessageListener
 import message.MessageType
 
-open class Executor(parent: Executor) : Backend() {
-    override fun process(iCodeGenerator: IntermediateCode, symbolTable: SymbolTable) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+open class Executor() : Backend() {
+
+
+    constructor(parent: Executor): this()
 
     var symbolTableStack: SymbolTableStack? = null
 
@@ -21,7 +21,7 @@ open class Executor(parent: Executor) : Backend() {
         val errorHandler = RuntimeErrorHandler()
     }
 
-    fun process(iCode: IntermediateCode, symbolTableStack: SymbolTableStack) {
+    override fun process(iCode: IntermediateCode, symbolTableStack: SymbolTableStack) {
         this.symbolTableStack = symbolTableStack
         this.iCode = iCode
 
@@ -30,7 +30,7 @@ open class Executor(parent: Executor) : Backend() {
 
         // Get the root node of the intermediate code and execute
         val rootNode: IntermediateCodeNode = iCode.getRoot()
-        val statementExecutor: StatementExecutor = StatementExecutor(this)
+        val statementExecutor = StatementExecutor(this)
         statementExecutor.execute(rootNode)
 
         val elapsedTime: Float = (System.currentTimeMillis() - startTime) / 1000f
