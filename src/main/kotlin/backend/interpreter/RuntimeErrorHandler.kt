@@ -10,7 +10,8 @@ class RuntimeErrorHandler {
 
     companion object {
         const private val MAX_ERRORS = 5
-        private var errorCount = 0
+        //this is private in the book but they never implement the getter
+        var errorCount = 0
     }
 
     fun flag(node: IntermediateCodeNode?, errorCode: RuntimeErrorCode, backend: Backend) {

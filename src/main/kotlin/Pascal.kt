@@ -46,7 +46,7 @@ class Pascal(operation: String, filePath: String, flags: String) {
 
             backend.process(iCode, symbolTableStack)
 
-//            iCode = parser.intermediateCode!!
+//            iCode = parser.iCode!!
 //            symbolTable = parser.symbolTable!!
 //
 //            backend.process(iCode, symbolTable)

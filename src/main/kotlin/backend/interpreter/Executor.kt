@@ -1,18 +1,41 @@
 package backend.interpreter
 
 import backend.Backend
-import intermediate.IntermediateCodeGenerator
-import intermediate.SymbolTableStack
+import intermediate.*
 import message.Message
 import message.MessageListener
 import message.MessageType
 
-class Executor : Backend() {
-    override fun process(iCode: IntermediateCodeGenerator, symbolTableStack: SymbolTableStack) {
+open class Executor(parent: Executor) : Backend() {
+    override fun process(iCodeGenerator: IntermediateCode, symbolTable: SymbolTable) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    var symbolTableStack: SymbolTableStack? = null
+
+    //TODO no sure if this should be using the parent's implementation
+    override var iCode: IntermediateCode? = null
+
+    companion object {
+        private val executionCount = 0
+        val errorHandler = RuntimeErrorHandler()
+    }
+
+    fun process(iCode: IntermediateCode, symbolTableStack: SymbolTableStack) {
+        this.symbolTableStack = symbolTableStack
+        this.iCode = iCode
+
         val startTime: Long = System.currentTimeMillis()
+
+
+        // Get the root node of the intermediate code and execute
+        val rootNode: IntermediateCodeNode = iCode.getRoot()
+        val statementExecutor: StatementExecutor = StatementExecutor(this)
+        statementExecutor.execute(rootNode)
+
         val elapsedTime: Float = (System.currentTimeMillis() - startTime) / 1000f
         val executionCount = 0
-        val runtimeErrors = 0
+        val runtimeErrors = RuntimeErrorHandler.errorCount
 
         sendMessage(Message(MessageType.INTERPRETER_SUMMARY, listOf<Number>(executionCount, runtimeErrors, elapsedTime)))
     }
