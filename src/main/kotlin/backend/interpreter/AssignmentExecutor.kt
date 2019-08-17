@@ -1,9 +1,8 @@
 package backend.interpreter
 
-import intermediate.IntermediateCode
-import intermediate.IntermediateCodeGenerator
-import intermediate.IntermediateCodeNode
-import intermediate.SymbolTableStack
+import intermediate.*
+import message.Message
+import message.MessageType
 import java.beans.Expression
 
 class AssignmentExecutor(val parent: StatementExecutor): StatementExecutor(parent) {
@@ -24,10 +23,29 @@ class AssignmentExecutor(val parent: StatementExecutor): StatementExecutor(paren
         val expressionNode = nodeChildren[1]
 
         val expressionExecutor = ExpressionExecutor(this)
-        val value: Any = expressionExecutor.execute(expressionNode)
+        val value: Any? = expressionExecutor.execute(expressionNode)
 
         //Set the value as an attribute of the variable's symbol table entry.
+        val variableId = variableNode.getAttribute(IntermediateCodeKey.ID) as SymbolTableEntry
+        value?.let { variableId.setAttribute(SymbolTableKeyImpl.DataValue, it) }
 
+        sendMessage(node, variableId.name, value)
+        ++executionCount
         return null
+    }
+
+    /**
+     * Send a message about the assignment operation.
+     * @param node the ASSIGN node.
+     * @param variableName the name of the target variable.
+     * @param value the value of the expression.
+     */
+
+    private fun sendMessage(node: IntermediateCodeNode, variableName: String, value: Any?) {
+        val lineNum = node.getAttribute(IntermediateCodeKey.LINE)
+
+        if (lineNum != null && value != null) {
+            sendMessage(Message(MessageType.ASSIGN, arrayListOf(lineNum, variableName, value)))
+        }
     }
 }

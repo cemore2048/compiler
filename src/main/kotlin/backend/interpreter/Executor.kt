@@ -17,7 +17,7 @@ open class Executor() : Backend() {
     override var iCode: IntermediateCode? = null
 
     companion object {
-        private val executionCount = 0
+        var executionCount = 0
         val errorHandler = RuntimeErrorHandler()
     }
 
