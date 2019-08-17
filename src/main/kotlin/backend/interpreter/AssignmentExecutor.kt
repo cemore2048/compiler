@@ -3,7 +3,6 @@ package backend.interpreter
 import intermediate.*
 import message.Message
 import message.MessageType
-import java.beans.Expression
 
 class AssignmentExecutor(val parent: StatementExecutor): StatementExecutor(parent) {
     override fun process(iCode: IntermediateCode, symbolTableStack: SymbolTableStack) {
@@ -15,7 +14,6 @@ class AssignmentExecutor(val parent: StatementExecutor): StatementExecutor(paren
      * @param node the root node of the compound statement
      * @return null
      */
-
     override fun execute(node: IntermediateCodeNode): Executor? {
         val nodeChildren = node.getChildren()
 
@@ -40,7 +38,6 @@ class AssignmentExecutor(val parent: StatementExecutor): StatementExecutor(paren
      * @param variableName the name of the target variable.
      * @param value the value of the expression.
      */
-
     private fun sendMessage(node: IntermediateCodeNode, variableName: String, value: Any?) {
         val lineNum = node.getAttribute(IntermediateCodeKey.LINE)
 
