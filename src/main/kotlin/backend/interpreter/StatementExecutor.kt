@@ -15,7 +15,7 @@ open class StatementExecutor(parent: Executor) : Executor(parent) {
      * @return null
      */
 
-    open fun execute(node: IntermediateCodeNode): Executor? {
+    fun execute(node: IntermediateCodeNode): Executor? {
         val nodeType: IntermediateCodeNodeType = node.getType()
 
         //send message about current source line
