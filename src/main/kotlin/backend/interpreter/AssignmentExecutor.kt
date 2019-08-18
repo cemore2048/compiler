@@ -5,10 +5,6 @@ import message.Message
 import message.MessageType
 
 class AssignmentExecutor(val parent: StatementExecutor): StatementExecutor(parent) {
-    override fun process(iCode: IntermediateCode, symbolTableStack: SymbolTableStack) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     /**
      * Execute a compound statement
      * @param node the root node of the compound statement
