@@ -4,6 +4,7 @@ import frontend.Token
 import frontend.TokenType
 import frontend.pascal.PascalErrorCode
 import frontend.pascal.tokens.PascalTokenType
+import frontend.pascal.tokens.PascalTokenType.*
 import intermediate.IntermediateCodeFactory
 import intermediate.IntermediateCodeKey
 import intermediate.IntermediateCodeNode
@@ -14,12 +15,12 @@ import java.util.*
 class ExpressionParser(pascalParserTD: PascalParserTD) : StatementParser(pascalParserTD) {
 
     init {
-        REL_OPS_MAP.put(PascalTokenType.EQUALS, IntermediateCodeNodeType.EQ)
-        REL_OPS_MAP.put(PascalTokenType.NOT_EQUALS, IntermediateCodeNodeType.NE)
-        REL_OPS_MAP.put(PascalTokenType.LESS_THAN, IntermediateCodeNodeType.LT)
-        REL_OPS_MAP.put(PascalTokenType.LESS_EQUALS, IntermediateCodeNodeType.LE)
-        REL_OPS_MAP.put(PascalTokenType.GREATER_THAN, IntermediateCodeNodeType.GT)
-        REL_OPS_MAP.put(PascalTokenType.GREATER_EQUALS, IntermediateCodeNodeType.GE)
+        REL_OPS_MAP[EQUALS] = IntermediateCodeNodeType.EQ
+        REL_OPS_MAP[NOT_EQUALS] = IntermediateCodeNodeType.NE
+        REL_OPS_MAP[LESS_THAN] = IntermediateCodeNodeType.LT
+        REL_OPS_MAP[LESS_EQUALS] = IntermediateCodeNodeType.LE
+        REL_OPS_MAP[GREATER_THAN] = IntermediateCodeNodeType.GT
+        REL_OPS_MAP[GREATER_EQUALS] = IntermediateCodeNodeType.GE
     }
 
     override fun parse(token: Token): IntermediateCodeNode = parseExpression(token)
@@ -52,14 +53,14 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : StatementParser(pascalP
 
         var tokentype: TokenType? = localToken?.type
 
-        if ((tokentype == PascalTokenType.PLUS || tokentype == PascalTokenType.MINUS)) {
+        if ((tokentype == PLUS || tokentype == MINUS)) {
             signType = tokentype
             localToken = nextToken
         }
 
         var rootNode: IntermediateCodeNode = parseTerm(localToken)
 
-        if (signType == PascalTokenType.MINUS) {
+        if (signType == MINUS) {
             val negateNode = IntermediateCodeFactory.createIntermediateCodeNode(IntermediateCodeNodeType.NEGATE)
             rootNode = negateNode
         }
@@ -120,7 +121,7 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : StatementParser(pascalP
         var rootNode: IntermediateCodeNode? = null
 
         when (tokenType as PascalTokenType) {
-            PascalTokenType.IDENTIFIER -> {
+            IDENTIFIER -> {
                 val name = localToken?.text?.toLowerCase()
                 var id = symbolTableStack.lookup(name!!)
 
@@ -136,28 +137,28 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : StatementParser(pascalP
                 localToken = nextToken
             }
 
-            PascalTokenType.INTEGER -> {
+            INTEGER -> {
                 rootNode = IntermediateCodeFactory.createIntermediateCodeNode(IntermediateCodeNodeType.INTEGER_CONSTANT)
                 rootNode.setAttribute(IntermediateCodeKey.VALUE, localToken?.value!!)
 
                 localToken = nextToken
             }
 
-            PascalTokenType.REAL -> {
+            REAL -> {
                 rootNode = IntermediateCodeFactory.createIntermediateCodeNode(IntermediateCodeNodeType.REAL_CONSTANT)
                 rootNode.setAttribute(IntermediateCodeKey.VALUE, localToken?.value!!)
 
                 localToken = nextToken
             }
 
-            PascalTokenType.STRING -> {
+            STRING -> {
                 rootNode = IntermediateCodeFactory.createIntermediateCodeNode(IntermediateCodeNodeType.STRING_CONSTANT)
                 rootNode.setAttribute(IntermediateCodeKey.VALUE, localToken?.value!!)
 
                 localToken = nextToken
             }
 
-            PascalTokenType.NOT -> {
+            NOT -> {
                 localToken = nextToken
 
                 rootNode = IntermediateCodeFactory.createIntermediateCodeNode(IntermediateCodeNodeType.NOT)
@@ -165,13 +166,13 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : StatementParser(pascalP
                 rootNode.addChild(parseFactor(localToken))
             }
 
-            PascalTokenType.LEFT_PAREN -> {
+            LEFT_PAREN -> {
                 localToken = nextToken
 
                 rootNode = parseExpression(localToken!!)
 
                 localToken = currentToken
-                if (localToken?.type == PascalTokenType.RIGHT_PAREN) {
+                if (localToken?.type == RIGHT_PAREN) {
                     localToken = nextToken
                 } else {
                     errorHandler.flag(localToken!!, PascalErrorCode.MISSING_RIGHT_PAREN, this)
@@ -187,29 +188,29 @@ class ExpressionParser(pascalParserTD: PascalParserTD) : StatementParser(pascalP
     }
 
     companion object {
-        val REL_OPS: EnumSet<PascalTokenType> = EnumSet.of(PascalTokenType.EQUALS,
-                PascalTokenType.NOT_EQUALS,
-                PascalTokenType.LESS_THAN,
-                PascalTokenType.LESS_EQUALS,
-                PascalTokenType.GREATER_THAN,
-                PascalTokenType.GREATER_EQUALS)
+        val REL_OPS: EnumSet<PascalTokenType> = EnumSet.of(EQUALS,
+                NOT_EQUALS,
+                LESS_THAN,
+                LESS_EQUALS,
+                GREATER_THAN,
+                GREATER_EQUALS)
 
         val REL_OPS_MAP: MutableMap<PascalTokenType, IntermediateCodeNodeType> = mutableMapOf()
 
-        val ADD_OPS: EnumSet<PascalTokenType> = EnumSet.of(PascalTokenType.PLUS, PascalTokenType.MINUS, PascalTokenType.OR)
+        val ADD_OPS: EnumSet<PascalTokenType> = EnumSet.of(PLUS, MINUS, OR)
 
         val ADD_OPS_OPS_MAP =
-                mapOf(PascalTokenType.PLUS to IntermediateCodeNodeType.ADD,
-                        PascalTokenType.MINUS to IntermediateCodeNodeType.SUBTRACT,
-                        PascalTokenType.OR to IntermediateCodeNodeType.OR)
+                mapOf(PLUS to IntermediateCodeNodeType.ADD,
+                        MINUS to IntermediateCodeNodeType.SUBTRACT,
+                        OR to IntermediateCodeNodeType.OR)
 
-        val MULT_OPS: EnumSet<PascalTokenType> = EnumSet.of(PascalTokenType.STAR, PascalTokenType.MOD, PascalTokenType.AND)
+        val MULT_OPS: EnumSet<PascalTokenType> = EnumSet.of(STAR, MOD, AND)
 
         val MULT_OPS_OPS_MAP: Map<PascalTokenType, IntermediateCodeNodeType> =
-                mapOf(PascalTokenType.STAR to IntermediateCodeNodeType.MULTIPLY,
-                        PascalTokenType.SLASH to IntermediateCodeNodeType.FLOAT_DIVIDE,
-                        PascalTokenType.DIV to IntermediateCodeNodeType.INTEGER_DIVIDE,
-                        PascalTokenType.MOD to IntermediateCodeNodeType.MOD,
-                        PascalTokenType.AND to IntermediateCodeNodeType.AND)
+                mapOf(STAR to IntermediateCodeNodeType.MULTIPLY,
+                        SLASH to IntermediateCodeNodeType.FLOAT_DIVIDE,
+                        DIV to IntermediateCodeNodeType.INTEGER_DIVIDE,
+                        MOD to IntermediateCodeNodeType.MOD,
+                        AND to IntermediateCodeNodeType.AND)
     }
 }
