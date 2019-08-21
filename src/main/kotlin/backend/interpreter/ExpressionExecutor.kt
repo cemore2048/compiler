@@ -16,10 +16,8 @@ class ExpressionExecutor(executor: Executor) : StatementExecutor(executor) {
      * @param node the root intermediate code node of the compound statement.
      * @return the computed value of the expression
      */
-    fun execute(node: IntermediateCodeNode): Any {
-        val nodeType: IntermediateCodeNodeType = node.getType() as IntermediateCodeNodeType
-
-        when (nodeType) {
+    fun execute(node: IntermediateCodeNode): Any? {
+        when (val nodeType: IntermediateCodeNodeType = node.getType() as IntermediateCodeNodeType) {
             IntermediateCodeNodeType.VARIABLE -> {
                 // Get the variable's symbol table entry and return its value.
                 val symTableEntry: SymbolTableEntry = node.getAttribute(IntermediateCodeKey.ID) as SymbolTableEntry
@@ -115,7 +113,7 @@ class ExpressionExecutor(executor: Executor) : StatementExecutor(executor) {
                 }
             }
         } else {
-            val value1: Float = if (operand1 is Float) operand1 else { operand1 }
+            val value1: Float = if (operand1 is Float) operand1 else { operand1.toFloat() }
             val value2: Float = if (operand2 is Float) operand2 else { operand2.toFloat() }
 
             when (nodeType) {
